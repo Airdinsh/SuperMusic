@@ -1,0 +1,192 @@
+body {
+  margin: 0;
+  height: 100vh;
+  --background-color: rgb(201, 218, 230);
+  --surface-color: rgb(206, 230, 241);
+  background: var(--background-color);
+  color: gray;
+  font-family: sans-serif;
+}
+
+.container {
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 35px;
+  background: var(--surface-color);
+/*   background: linear-gradient (var(--surface-color), #fff);
+ */  display: grid;
+
+  grid-template-rows: 80px auto 85px 70px 170px;
+  grid-template-columns: 120px auto 120px;
+
+
+/*     grid-template-columns: 
+        [left-col-start]                    120px 
+        [left-col-end middle-col-start]     auto 
+        [right-col-start]                   120px
+        [right-col-end];
+        
+    grid-template-rows: 
+        [top-nav-start]                     80px 
+        [otp-nav-end album-cover-start]     auto 
+        [album-cover-end song-title-start]  85px 
+        [song-title-end song-progress-start] 70px 
+        [song-progress-end bottom-nav-start] 170px
+        [bottom-nav-end]; */
+
+    grid-template-areas: 
+        "top-left        top-middle       top-right"
+        "album-cover     album-cover      album-cover"
+        "song-title      song-title       song-title"
+        "song-progress   song-progress    song-progress"    
+        "bottom-left     bottom-middle    bottom-right";
+}
+
+.button {
+    border: 0;
+}
+
+/* .box {
+  border: solid red 3px;
+} */
+
+.song-title {
+    grid-area: song-title;
+    text-align: center;
+}
+
+.top-left {
+    grid-area: top-left;
+    display: grid;
+    margin: 0;
+}
+
+.top-middle {
+    grid-area: top-middle;
+    
+}
+
+.top-right {
+    grid-area: top-right;
+    display: grid;
+    margin: 0;
+}
+
+
+
+.album-cover {
+    grid-area: album-cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.record-outer {
+    height: 220px;
+    width: 220px;
+    border-radius: 50%;
+    background: var(--surface-color);
+    border: 7px solid var(--surface-color);
+    box-shadow: -10px -10px 20px rgba(255, 255, 255, 0.8),
+    10px 10px 20px rgba(0, 0, 0, 0.5);
+    display: grid;
+}
+
+.record-inner {
+    height: 220px;
+    width: 220px;
+    border-radius: 50%;
+    background-image: url(http://source.unsplash.com/random/220x220);
+    animation: spin 10s linear infinite;
+    height: 95%;
+    width: 95%;
+    border-radius: 50%;
+    margin: auto;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+.song-title {
+    grid-area: song-title;
+    display: grid;
+    margin: auto;
+}
+
+.song-progress {
+    grid-area: song-progress;
+    display: grid;
+    margin: 0;
+}
+
+
+
+.song-progress {
+    grid-area: song-progress;
+}
+
+
+
+.bottom-left {
+    grid-area: bottom-left;
+    display: grid;
+    margin: auto;
+}
+
+.bottom-middle {
+    grid-area: bottom-middle;
+    display: grid;
+    margin: auto;
+}
+
+.bottom-right {
+    grid-area: bottom-right;
+    display: grid;
+    margin: auto;
+}
+
+.button-active {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    border: solid 3px rgb(175, 184, 211);
+
+    color: #fff;
+    color: var(--primary-color);
+    box-shadow: inset 8px 8px 20px rgb(2, 82, 202), 
+                inset -8px -8px 10px rgba(255, 255, 255, 0.8);
+    color: rgba(2, 82, 202, 0.5);
+
+}
+.button {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: var(--surface-color);
+    border: solid var(--background-color) 3px;
+    box-shadow: -3px -3px 10px rgba(255, 255, 255, 0.8),
+                3px 3px 10px rgba(0, 0, 0, 0.5),
+                inset 10px 10px 10px rgba(255, 255, 255, 0.8)
+}
+
+.button-big {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+}
+
+
+.button-small {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
